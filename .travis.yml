@@ -14,6 +14,8 @@ before_install:
   - gcloud config set project multi-k8s-296306
   - gcloud config set compute/zone europe-north1-a
   - gcloud container clusters get-credentials multi-cluster
+  - echo "$DOCKER_USERNAME"
+  - echo "$DOCKER_PASSWORD"
   - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
   - docker build -t mviitane/react-test -f ./client/Dockerfile.dev ./client
 
